@@ -1,0 +1,73 @@
+###  Register a new user
+POST http://localhost:5009/users
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "mypassword123"
+}
+
+###  Register another user`
+POST http://localhost:5009/users
+Content-Type: application/json
+
+{
+  "name": "Jane Smith",
+  "email": "jane@example.com",
+  "password": "password456"
+}
+
+###  Try registering same email (should give error)
+POST http://localhost:5009/users
+Content-Type: application/json
+
+{
+  "name": "John Duplicate",
+  "email": "john@example.com",
+  "password": "anotherpass"
+}
+
+###  Login with correct credentials
+POST http://localhost:5009/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "mypassword123"
+}
+
+###  Login with wrong password
+POST http://localhost:5009/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "wrongpassword"
+}
+
+###  Login with non-existing user
+POST http://localhost:5009/login
+Content-Type: application/json
+
+{
+  "email": "unknown@example.com",
+  "password": "nopass"
+}
+
+###  Get all users
+GET http://localhost:5009/users
+
+
+### Delete By ID
+DELETE http://localhost:5009/user/1
+
+### Adding another User
+POST http://localhost:5009/users
+Content-Type: application/json
+
+{
+  "name": "Salman",
+  "email": "salman@retainsure.com",
+  "password": "mypassword123"
+}
